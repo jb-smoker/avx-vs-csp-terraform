@@ -29,4 +29,6 @@ Infrastructure built by both sets of code.
 
 ## Notes
 
-Recognize that both sets of code leverage the Aviatrix platform to provide multicloud connectivity. The Aviatrix software defined networking platform simplifies network configuration by defining routing _intent_, while the platform itself orchestrates the underlying network _routes_. Comparing the level of (significant) effort in creating connectivity within and between cloud providers is outside the scope of this code.
+Both sets of code leverage the Aviatrix platform to provide multicloud connectivity and Palo Alto firewall insertion. The Aviatrix software defined networking platform simplifies network configuration by defining routing _intent_, while the platform itself orchestrates the underlying network _routes_. The Aviatrix platform also orchestrates Palo Alto deployment, including load balancing.
+
+Comparing the level of effort in creating connectivity within and between cloud providers and deploying Palo Alto infrastructure is outside the scope of this code.
