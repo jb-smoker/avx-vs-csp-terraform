@@ -1,6 +1,6 @@
 locals {
   transit_firenet = {
-    azure = {
+    azure_east = {
       transit_account     = "azure-account"
       transit_cloud       = "azure"
       transit_cidr        = "10.1.0.0/23"
@@ -9,7 +9,7 @@ locals {
       transit_ha_gw       = false
       firenet             = true
     },
-    gcp = {
+    gcp_west = {
       transit_account     = "gcp-account"
       transit_cloud       = "gcp"
       transit_cidr        = "10.2.0.0/23"
@@ -19,7 +19,7 @@ locals {
       transit_region_name = "us-west1"
       transit_asn         = 65102
       transit_ha_gw       = false
-      firenet             = true
+      firenet             = false
     },
   }
 }
