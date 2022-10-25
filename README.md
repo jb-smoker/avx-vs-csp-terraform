@@ -12,6 +12,15 @@ The purpose of this repository is to demonstrate the relative simplicity of orch
 - `/csp`: stand-alone terraform code that leverages CSP terraform providers to build cloud networks and the Aviatrix terraform provider for establishing multicloud connectivity.
 - `/images`: in-line images for the readme
 
+## Infrastructure Deployed
+
+- Transit VPC/Vnet in Azure and GCP
+- Spoke VPC/Vnet in Azure and GCP
+- Connectivity between Azure spoke and GCP spoke achieved via:
+  - AVX Transit Gateway(s) deployed in Azure and GCP transit VPC/Vnet(s) and connected via Aviatrix transit peering
+  - AVX Spoke Gateways(s) deployed in Azure and GCP spoke VPC/Vnet(s) and attached to their respective Aviatrix Transit Gateways
+- Palo Alto Firewall deployed to Azure Transit Vnet (via Aviatrix) and inserted into the data path via Aviatrix Firenet
+
 ## Infrastructure Diagram
 
 Infrastructure built by both sets of code.
