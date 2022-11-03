@@ -43,17 +43,12 @@ module "spoke" {
   source   = "terraform-aviatrix-modules/mc-spoke/aviatrix"
   version  = "1.4.1"
 
-  cloud    = each.value.transit_cloud
-  name     = "avx-${replace(lower(each.value.transit_region_name), " ", "-")}-spoke-1"
-  cidr     = cidrsubnet("${trimsuffix(each.value.transit_cidr, "23")}16", 8, 2)
-  region   = each.value.transit_region_name
-  account  = each.value.transit_account
-  attached = false
-  ha_gw    = false
-}
-
-resource "aviatrix_spoke_transit_attachment" "spoke" {
-  for_each        = local.transit_firenet
-  spoke_gw_name   = module.spoke[each.key].spoke_gateway.gw_name
+  cloud           = each.value.transit_cloud
+  name            = "avx-${replace(lower(each.value.transit_region_name), " ", "-")}-spoke-1"
+  cidr            = cidrsubnet("${trimsuffix(each.value.transit_cidr, "23")}16", 8, 2)
+  region          = each.value.transit_region_name
+  account         = each.value.transit_account
   transit_gw_name = module.framework.transit[each.key].transit_gateway.gw_name
+  attached        = true
+  ha_gw           = false
 }
